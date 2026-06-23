@@ -1,0 +1,33 @@
+# Permutation Generation using Backtracking
+
+def permutation(arr, start):
+
+    if start == len(arr):
+        print(arr)
+        return
+
+    for i in range(start, len(arr)):
+
+        # Swap elements
+        arr[start], arr[i] = arr[i], arr[start]
+
+        # Recursive call
+        permutation(arr, start + 1)
+
+        # Backtracking
+        arr[start], arr[i] = arr[i], arr[start]
+
+
+# Main Program
+
+n = int(input("Enter number of elements: "))
+
+arr = []
+
+print("Enter elements:")
+for i in range(n):
+    arr.append(input())
+
+print("All Permutations:")
+
+permutation(arr, 0)

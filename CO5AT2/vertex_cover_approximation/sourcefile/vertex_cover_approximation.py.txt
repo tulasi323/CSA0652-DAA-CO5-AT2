@@ -1,0 +1,27 @@
+# Vertex Cover Approximation Algorithm
+
+edges = [(1,2), (2,3), (3,4), (4,1)]
+
+cover = set()
+
+while edges:
+
+    # Select an uncovered edge
+    u, v = edges[0]
+
+    # Add both vertices to cover
+    cover.add(u)
+    cover.add(v)
+
+    # Remove covered edges
+    remaining = []
+
+    for edge in edges:
+        if u not in edge and v not in edge:
+            remaining.append(edge)
+
+    edges = remaining
+
+
+print("Approximate Vertex Cover:")
+print(cover)
